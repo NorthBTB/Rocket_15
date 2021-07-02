@@ -89,7 +89,7 @@ Title			VARCHAR(30) NOT NULL,
 CategoryID		INT NOT NULL,
 Duration		INT NOT NULL,
 CreatorID		INT NOT NULL,
-CreatorDate		DATETIME DEFAULT NOW(),
+CreateDate		DATETIME DEFAULT NOW(),
 FOREIGN KEY (CategoryID) REFERENCES CategoryQuestion(CategoryID),
 FOREIGN KEY (CreatorID) REFERENCES Accountt(AccountID)
 );
@@ -125,22 +125,26 @@ VALUES
 (N'Bảo vệ');
 
 -- ACCOUNTT
-INSERT INTO `Account`(Email, Username, FullName, DepartmentID, PositionID, CreateDate)
+INSERT INTO Accountt(Email, Username, FullName, DepartmentID, PositionID, CreateDate)
 VALUES 
-('JohnnyDang@gmail.com', 'Username1', N'Johnny Đặng', '1', '1', '2021-06-01'),
-('TommyTeo@gmail.com', 'Username2', N'Tommy Tèo', '5', '3', '2021-06-08'),
-('JohnWick@gmail.com', 'Username3', N'John Wick', '2', '2', '2021-06-15'),
-('An@gmail.com', 'Username4', N'Nguyễn Văn An', '5', '2', '2021-06-19'),
-('Canh@gmail.com', 'Username5', N'Đỗ Xuân Cảnh', '5', '2', '2021-06-21');
+('JohnnyDang@gmail.com'		, 'Username1'	, N'Johnny Đặng'	, '1'	, '1'	, '2021-06-01'),
+('TommyTeo@gmail.com'		, 'Username2'	, N'Tommy Tèo'		, '5'	, '3'	, '2021-06-08'),
+('JohnWick@gmail.com'		, 'Username3'	, N'John Wick'		, '2'	, '2'	, '2021-06-15'),
+('An@gmail.com'				, 'Username4'	, N'Nguyễn Văn An'	, '5'	, '2'	, '2021-06-19'),
+('Canh@gmail.com'			, 'Username5'	, N'Đỗ Xuân Cảnh'	, '4'	, '2'	, '2021-06-21'),
+('Dia@gmail.com'			, 'Username6'	, N'Lê Công Địa'	, '3'	, '2'	, '2021-06-21'),
+('Khanh@gmail.com'			, 'Username7'	, N'Mai Quốc Khánh'	, '3'	, '1'	, '2021-06-21'),
+('Doan@gmail.com'			, 'Username8'	, N'Đỗ Văn Toàn'	, '1'	, '1'	, '2021-05-01'),
+('Bao@gmail.com'			, 'Username8'	, N'Đỗ Đức Bảo'		, '1'	, '1'	, '2021-05-01');
 
 -- Groupp
 INSERT INTO Groupp (GroupName, CreatorID, CreateDate)
 VALUES 
-(N'Developer' , 2, '2021-05-05'),
-(N'Tester' , 1, '2021-06-01'),
-(N'Sale' , 3, '2021-06-18'),
-(N'Marketing' , 2, '2021-06-18'),
-(N'ShareWithMe', 1, '2021-06-19');
+(N'Developer' 	, 2		, '2021-05-05'),
+(N'Tester' 		, 1		, '2021-06-01'),
+(N'Sale' 		, 3		, '2021-06-18'),
+(N'Marketing' 	, 2		, '2021-06-18'),
+(N'ShareWithMe'	, 1		, '2021-06-19');
 
 -- GroupAccount
 INSERT INTO GroupAccount (GroupID ,AccountID ,JoinDate )
@@ -176,28 +180,31 @@ VALUES
 -- QUESTION
 INSERT INTO Question (Content, CategoryID, TypeID, CreatorID, CreateDate )
 VALUES 
-(N'Trả lời câu hỏi' , 1 ,'1' ,'1' ,'2021-06-20'),
-(N'Trả lời câu hỏi' , 2 ,'4' ,'2' ,'2021-06-20'),
-(N'Trả lời câu hỏi' , 3 ,'3' ,'3' ,'2021-06-21'),
-(N'Trả lời câu hỏi' , 4 ,'2' ,'2' ,'2021-06-21'),
-(N'Trả lời câu hỏi' , 5 ,'3' ,'3' ,'2021-06-22'),
-(N'Trả lời câu hỏi' , 3 ,'1' ,'2' ,'2021-06-22'),
-(N'Trả lời câu hỏi' , 2 ,'4' ,'1' ,'2021-06-23'),
-(N'Trả lời câu hỏi' , 5 ,'1' ,'1' ,'2021-06-23');
+(N'Trả lời câu hỏi 1' , 1 ,'1' ,'1' ,'2021-06-20'),
+(N'Trả lời câu hỏi 2' , 2 ,'4' ,'2' ,'2021-06-20'),
+(N'Trả lời câu hỏi 3' , 3 ,'3' ,'3' ,'2021-06-21'),
+(N'Trả lời câu hỏi 4' , 4 ,'2' ,'2' ,'2021-06-21'),
+(N'Trả lời câu hỏi 5' , 5 ,'3' ,'3' ,'2021-06-22'),
+(N'Trả lời câu hỏi 6' , 3 ,'1' ,'2' ,'2021-06-22'),
+(N'Trả lời câu hỏi 7' , 2 ,'4' ,'1' ,'2021-06-23'),
+(N'Trả lời câu hỏi 8' , 5 ,'1' ,'1' ,'2021-06-23');
 
 -- ANSWER
 INSERT INTO Answer (Content , QuestionID , isCorrect )
 VALUES 
-(N'Câu trả lời' , 1 , 0),
-(N'Câu trả lời' , 2 , 1),
-(N'Câu trả lời' , 3 , 1),
-(N'Câu trả lời' , 4 , 1),
-(N'Câu trả lời' , 5 , 0),
-(N'Câu trả lời' , 6 , 1),
-(N'Câu trả lời' , 7 , 1),
-(N'Câu trả lời' , 8 , 0),
-(N'Câu trả lời' , 1 , 1),
-(N'Câu trả lời' , 8 , 1);
+(N'Câu trả lời 1' 	, 1 , 0),
+(N'Câu trả lời 2' 	, 1 , 1),
+(N'Câu trả lời 3' 	, 1 , 1),
+(N'Câu trả lời 4' 	, 1 , 0),
+(N'Câu trả lời 5' 	, 2 , 1),
+(N'Câu trả lời 6' 	, 3 , 1),
+(N'Câu trả lời 7' 	, 4 , 1),
+(N'Câu trả lời 8' 	, 5 , 0),
+(N'Câu trả lời 9' 	, 6 , 1),
+(N'Câu trả lời 10' 	, 7 , 1),
+(N'Câu trả lời 11' 	, 8 , 0),
+(N'Câu trả lời 12' 	, 1 , 1),
+(N'Câu trả lời 13' 	, 8 , 1);
 
 -- EXAM 
 INSERT INTO Exam (Codee , Title , CategoryID, Duration , CreatorID , CreateDate )
@@ -220,7 +227,6 @@ VALUES
 ( 1 , 6 ),
 ( 1 , 7 ),
 ( 1 , 8 ),
-( 1 , 9 ),
 ( 2 , 1 ),
 ( 2 , 2 ),
 ( 2 , 3 ),
